@@ -1,0 +1,19 @@
+{
+  "name": "fed-capstone",
+  "version": "1.0.0",
+  "description": "An app that helps users decide how to dress by using current weather, what they are going to be attending and gender.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carter-harris/fed-capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carter-harris/fed-capstone/issues"
+  },
+  "homepage": "https://github.com/carter-harris/fed-capstone#readme"
+}
