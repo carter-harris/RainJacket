@@ -1,0 +1,27 @@
+<!-- REGISTER PAGE -->
+
+<h1>RainJacket</h1>
+<h2>Register</h2>
+
+<form ng-submit="auth.register()">
+
+  Email
+  <input ng-model="auth.email"
+  type="email" class="form-control" placeholder="lol@lol.com">
+
+  Password
+  <input ng-model="auth.password"
+  type="password" class="form-control" placeholder="*******">
+
+  <button ng-click="auth.login()"
+  class="btn btn-primary" value="Login">
+  Register
+  </button>
+
+<!--   <div>
+    Not registered? No worries, click
+    <input type="submit" class="btn btn-primary" value="Register">
+    to get started!
+  </div> -->
+
+</form>
