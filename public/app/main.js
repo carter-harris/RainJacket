@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ui.bootstrap', 'angular.filter'])
+angular.module('app', ['ngRoute', 'ui.bootstrap'])
 console.log("Hello World");
 
   // Initialize Firebase
@@ -6,7 +6,7 @@ console.log("Hello World");
     apiKey: "AIzaSyC_yMinncyZrC7PgC8ItDbDx-PZF96yFg4",
     authDomain: "fed-capstone.firebaseapp.com",
     databaseURL: "https://fed-capstone.firebaseio.com",
-    storageBucket: "",
+    storageBucket: "fed-capstone.appspot.com",
   });
 
   // hardcoded logout, comment out / delete once we make a logout button
