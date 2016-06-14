@@ -1,0 +1,33 @@
+<!-- LOGIN PAGE -->
+
+<h1>RainJacket</h1>
+<h2>Log in</h2>
+
+<form ng-submit="auth.register()">
+
+  Email
+  <input ng-model="auth.email"
+  type="email" class="form-control" placeholder="lol@lol.com">
+
+  Password
+  <input ng-model="auth.password"
+  type="password" class="form-control" placeholder="*******">
+
+  <button ng-click="auth.login()"
+  class="btn btn-primary" value="Login">
+  Log in
+  </button>
+
+  <div>
+    Not registered? No worries, click
+    <input type="submit" class="btn btn-primary" value="Register">
+    to get started!
+  </div>
+
+</form>
+
+<!--
+
+  - change register to a link and not a button with the text on the moquq
+
+ -->
