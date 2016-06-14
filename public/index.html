@@ -6,14 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>FED CAPSTONE</title>
   <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-  <h1>Hello World</h1>
+  <p class="test-style">Hello World</p>
+
+  <div class="container">
+    <div ng-app="app">
+      <div ng-view></div>
+    </div>
+  </div>
+
+
   <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular-route/angular-route.min.js"></script>
   <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script src="main.js"></script>
+  <script src="app/main.js"></script>
+  <script src="app/controller.js"></script>
+  <script src="app/factory.js"></script>
+  <script src="app/config.js"></script>
+  <script src="app/constants.js"></script>
 </body>
 
 </html>
