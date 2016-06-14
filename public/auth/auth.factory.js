@@ -11,7 +11,7 @@ angular.module('app')
 
       if (user) {
         currentUser = user;
-        $location.path('main-page');
+        $location.path('/main-page');
         $timeout();
       } else {
         currentUser = null;
@@ -33,7 +33,8 @@ angular.module('app')
 
       // This 'post', post to FB via the key we made in FB called user.
       // The second argument 'newUser' is the object we made to be posted in FB.
-      $http.post(`https://fed-capstone.firebaseio.com.json`, newUser). then();
+      $http.post(`https://fed-capstone.firebaseio.com.json`, newUser)
+      .then();
     }
 
 
