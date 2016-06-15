@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('authFactory', ($timeout, $location, $http) => {
+  .factory('authFactory', ($timeout, $location, $http, FB_URL) => {
 
     let currentUser = null;
 
@@ -10,7 +10,7 @@ angular.module('app')
       console.log("Fired state of change function on auth.factory.js");
 
       if (user) {
-        currentUser = user;
+        currentUser = user; // could just target uid here
         $location.path('/main-page');
         $timeout();
       } else {
@@ -18,7 +18,7 @@ angular.module('app')
         $location.path('/');
         $timeout();
       }
-    });
+    }); // end of onAuthStateChanged function
 
 
     // Making of the object via users info, be registering, FB returns
@@ -33,8 +33,9 @@ angular.module('app')
 
       // This 'post', post to FB via the key we made in FB called user.
       // The second argument 'newUser' is the object we made to be posted in FB.
-      $http.post(`https://fed-capstone.firebaseio.com.json`, newUser)
-      .then();
+      // $http.post(`https://fed-capstone.firebaseio.com.json`, newUser)
+      // $http.post(`${FB_URL}.json`, newUser)
+      // .then();
     }
 
 
@@ -65,7 +66,7 @@ angular.module('app')
       },
 
       // Returning 'currentUser' so it can be accessed through 'authFactory' in other files
-      getUser () {
+      getUser() {
         return currentUser;
       }
 

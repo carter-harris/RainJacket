@@ -24,16 +24,36 @@
   <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="lib/firebase/firebase.js"></script>
 
-  <!-- Project Files -->
+  <!-- App Scripts -->
   <script src="app/main.js"></script>
   <script src="app/controller.js"></script>
   <script src="app/factory.js"></script>
   <script src="app/config.js"></script>
   <script src="app/constants.js"></script>
-<!--   <script src="landing/landing.config.js"></script>
- -->  <script src="auth/auth.factory.js"></script>
+
+  <!-- Auth Scripts -->
+  <script src="auth/auth.factory.js"></script>
   <script src="auth/auth.ctrl.js"></script>
-<!--   <script src="auth/register.ctrl.js"></script>
- --></body>
+  <!-- <script src="auth/auth.config.js"></script> -->
+
+  <!-- Populate Page Scripts -->
+  <script src="populate/populate.factory.js"></script>
+  <script src="populate/populate.ctrl.js"></script>
+  <script src="populate/populate.config.js"></script>
+
+
+  <!-- Profile Scripts -->
+<!--   <script src="profile/profile.factory.js"></script>
+  <script src="profile/profile.ctrl.js"></script>
+  <script src="profile/profile.config.js"></script> -->
+
+</body>
 
 </html>
+
+
+
+<!--
+
+var user = firebase.auth().currentUser (in log to tap into user info)
+ -->
