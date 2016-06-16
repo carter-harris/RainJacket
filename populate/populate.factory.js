@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('mainPageFactory', ($timeout, $location, $http, FB_URL) => {
+  .factory('populateFactory', ($timeout, $location, $http, FB_URL) => {
 
 
 

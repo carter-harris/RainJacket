@@ -1,5 +1,5 @@
-angular.module('app', ['ngRoute', 'ui.bootstrap'])
-console.log("Hello World");
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'angular.filter'])
+// console.log("Hello World");
 
   // Initialize Firebase
   firebase.initializeApp ({
@@ -10,4 +10,4 @@ console.log("Hello World");
   });
 
   // hardcoded logout, comment out / delete once we make a logout button
-  firebase.auth().signOut()
+  // firebase.auth().signOut()

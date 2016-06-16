@@ -1,8 +1,15 @@
 <h1>RainJacket</h1>
 <p>main page?</p>
 
-<div>{{mainPage.heading}}</div>
-<div ng-repeat="staticImages in mainPage.data">
+<div>{{populate.heading}}</div>
+<!-- <a ng-href="populate.logout()" href="/" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span></a>
+ -->
+<button ng-click="populate.logout()"
+class="btn btn-danger" value="Login">
+Logout
+</button>
+
+<div ng-repeat="staticImages in populate.data">
   <div><img src="{{staticImages.img}}"></div>
 </div>
 

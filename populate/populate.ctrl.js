@@ -1,15 +1,21 @@
 angular.module('app')
-  .controller('MainPageCtrl', function (authFactory, $timeout) {
-    const mainPage = this
+  .controller('PopulateCtrl', function (authFactory, $timeout, $location) {
+    const populate = this;
 
-    mainPage.user = authFactory.getUser()
-    console.log("yup",mainPage.user );
+    populate.user = authFactory.getUser()
+    console.log("yup",populate.user );
 
-    mainPage.heading = 'working?'
+    populate.heading = 'working?'
 
     firebase.database().ref('/images').on('value', (arg) => {
-      mainPage.data = arg.val();
+      populate.data = arg.val();
       $timeout();
     })
 
+    // Logout function
+    populate.logout = function () {
+      firebase.auth().signOut()
+      .then($location.path.bind($location, '/'))
+      .then($timeout)
+    }
   })
