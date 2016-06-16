@@ -1,0 +1,79 @@
+<h1>RainJacket</h1>
+
+<div>{{search.heading}}</div>
+
+<div>
+  <button ng-click="search.logout()" value="Login">
+    <span class="glyphicon glyphicon-log-out"></span>
+  </button>
+</div>
+
+<!-- FORM -->
+<form name="form" class="form-horizontal">
+
+  <!-- Form Name -->
+  <legend>Tell us a little about yourself</legend>
+
+  <!-- Gender dropdown -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="gender">I'm a</label>
+    <div class="col-md-8">
+      <select id="genderDropdown" name="gender" class="form-control">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Event dropdown -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="event">attending a</label>
+    <div class="col-md-8">
+      <select id="eventDropdown" name="event" class="form-control">
+        <option value="festival">festival</option>
+        <option value="dinnerDate">dinner date</option>
+        <option value="park">park</option>
+      </select>
+    </div>
+  </div>
+
+
+  <!-- Zipcode input -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="zipcode">in</label>
+    <div class="col-md-8">
+      <input
+        id="zipcodeDropdown"
+        name="zipcode"
+        type="text"
+        placeholder="zipcode"
+        pattern="[0-9]{5}"
+        value=""
+        class="form-control input-md"
+        required=""
+      >
+    </div>
+  </div>
+
+
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="showStyles"></label>
+    <div class="col-md-4">
+      <button
+        id="showStylesBtn"
+        type="submit"
+        name="showStyles"
+        class="btn btn-primary"
+        ng-disabled="form.$invalid">
+        Show Styles
+      </button>
+    </div>
+  </div>
+
+</form>
+
+
+
+
+
