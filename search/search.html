@@ -2,6 +2,10 @@
 
 <div>{{search.heading}}</div>
 
+<div>{{search.currentTemp}}</div>
+<img ng-src="{{search.weatherIcon}}" alt="">
+<img ng-src="{{search.WUGpng}}" alt="">
+
 <div>
   <button ng-click="search.logout()" value="Login">
     <span class="glyphicon glyphicon-log-out"></span>
@@ -9,7 +13,8 @@
 </div>
 
 <!-- FORM -->
-<form name="form" class="form-horizontal">
+<form name="form" class="form-horizontal" ng-submit="search.zipcodeInput(search.zipcode)">
+<!-- <form name="form" class="form-horizontal" ng-submit="search.submit(search)"> -->
 
   <!-- Form Name -->
   <legend>Tell us a little about yourself</legend>
@@ -18,7 +23,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="gender">I'm a</label>
     <div class="col-md-8">
-      <select id="genderDropdown" name="gender" class="form-control">
+      <select ng-model="search.genderSelected" id="genderDropdown" name="gender" class="form-control">
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
@@ -29,7 +34,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="event">attending a</label>
     <div class="col-md-8">
-      <select id="eventDropdown" name="event" class="form-control">
+      <select ng-model="search.eventSelected" id="eventDropdown" name="event" class="form-control">
         <option value="festival">festival</option>
         <option value="dinnerDate">dinner date</option>
         <option value="park">park</option>
@@ -43,6 +48,7 @@
     <label class="col-md-4 control-label" for="zipcode">in</label>
     <div class="col-md-8">
       <input
+        ng-model="search.zipcode"
         id="zipcodeDropdown"
         name="zipcode"
         type="text"
@@ -65,13 +71,15 @@
         type="submit"
         name="showStyles"
         class="btn btn-primary"
-        ng-disabled="form.$invalid">
+        >
         Show Styles
       </button>
     </div>
   </div>
 
 </form>
+
+<!-- ng-disabled="form.$invalid" was inside the button -->
 
 
 
