@@ -9,7 +9,8 @@ angular.module('app')
       console.log("user of onAuthStateChanged: ", user);
       if (user) {
         currentUser = user; // could just target uid here
-        $location.path('/search-page'); // was populate-page, just testing to see if everything is working
+        // $location.path('/search-page'); // was populate-page, just testing to see if everything is working
+        $location.path('/search-page');
         $timeout();
       } else {
         currentUser = null;
