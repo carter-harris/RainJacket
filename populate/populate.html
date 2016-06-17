@@ -1,25 +1,13 @@
 <h1>RainJacket</h1>
-<p>main page?</p>
 
 <div>{{populate.heading}}</div>
-<!-- <a ng-href="populate.logout()" href="/" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span></a>
- -->
+
 
 <button ng-click="populate.logout()"
 class="btn btn-danger" value="Login">
 Logout
 </button>
 
-<div ng-repeat="staticImages in populate.data">
-  <div><img src="{{staticImages.img}}"></div>
+<div ng-repeat="staticImages in populate.photos">
+  <div><img ng-src="{{staticImages.img}}"></div>
 </div>
-
-<!-- <div ng-repeat="posts in main.data">
-  <ul>
-    <li>{{posts.users}}</li>
-    <li>{{posts.message}}</li>
-    <li>{{posts.timestamp}}</li>
-    <li><img src="{{posts.images}}"></li>
-    <li><button type="click" ng-click="main.delete(votes.$key)">Delete</button></li>
-  </ul>
-</div> -->

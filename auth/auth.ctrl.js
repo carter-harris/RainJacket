@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('AuthCtrl', function (authFactory, FB_URL, $timeout) {
+  .controller('AuthCtrl', function (authFactory) {
     const auth = this;
 
     // Passing users info into login function

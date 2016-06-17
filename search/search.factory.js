@@ -1,7 +1,8 @@
 angular.module('app')
-  .factory('searchFactory', ($timeout, $location, $http, FB_URL, authFactory) => { // add API_URL once obtained
+  .factory('searchFactory', ($http, authFactory) => {
 
     let currentTemp;
+    let userInput;
 
     return {
       currentTemp (zipcode) {
@@ -16,7 +17,12 @@ angular.module('app')
       },
       getCurrentTemp () {
         return currentTemp;
+      },
+      getUserInput () {
+        return userInput;
+      },
+      setUserInput (formValues) {
+        userInput = formValues;
       }
     } //end of the return
-
   })
