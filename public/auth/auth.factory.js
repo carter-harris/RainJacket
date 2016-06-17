@@ -6,7 +6,7 @@ angular.module('app')
     // Listener that fires on login or logout state of change
     firebase.auth().onAuthStateChanged(function(user) {
 
-      console.log("user of onAuthStateChanged: ", user);
+      // console.log("user of onAuthStateChanged: ", user);
       if (user) {
         currentUser = user; // could just target uid here
         // $location.path('/search-page'); // was populate-page, just testing to see if everything is working
