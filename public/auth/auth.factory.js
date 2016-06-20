@@ -1,56 +1,56 @@
 angular.module('app')
   .factory('authFactory', ($timeout, $location, $http, FB_URL) => {
 
-    let currentUser = null;
+    // let currentUser = null;
+    let userId;
+    let userEmail;
+    let token;
 
-    // Listener that fires on login or logout state of change
-    firebase.auth().onAuthStateChanged(function(user) {
 
-      // console.log("user of onAuthStateChanged: ", user);
-      if (user) {
-        currentUser = user; // could just target uid here
-        // $location.path('/search-page'); // was populate-page, just testing to see if everything is working
-        $location.path('/search-page');
-        $timeout();
-      } else {
-        currentUser = null;
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) { // currentUser = user;
+        userId = user.uid;
+        userEmail = user.email;
+        user.getToken()
+          .then(t => token = t)
+          .then(() => $location.path('/search-page'))
+          .then($timeout)
+      } else { // currentUser = null;
         $location.path('/');
         $timeout();
       }
-    }); // end of onAuthStateChanged function
+    });
 
 
-    // This is all being returned into authFactory for used elsewhere
     return {
-      // Register function and grabs users infor crom createUser function below
-      register (email, password) {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        // This below, once the user registers, makes an argument called user,
-        // that executes a function called 'createUser' below and pass in the arugment user.
-        // The function on line 27 is where it is being executed
-        // .then(user => createUser(user))
-      },
-
-      // Login Function
       login (email, password) {
         firebase.auth().signInWithEmailAndPassword(email,password)
       },
+      register (email, password) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(data => ($http.put(`${FB_URL}users/${data.uid}.json?auth=${data.Wc}`, {
+            userId: data.uid,
+            email: data.email
+          })))
+          .catch((error) => (alert(error.message)));
+      },
 
       // Returning 'currentUser' so it can be accessed through 'authFactory' in other files
-      getUser() {
-        return currentUser;
+      // getUser() {
+      //   return currentUser;
+      // },
+
+      currentUser () {
+        return {
+          userId: userId,
+          email: userEmail,
+          auth: token
+        }
       }
-    } // end of the return
-  }) // end of factory
+    }
+  })
 
-
-
-
-
-
-
-
-
+  // .then($location.path.bind($location, `/search-page/${userId}`))
 
   // TOOK THIS OUT, WAS ABOVE THE RETURN BEFORE
 
@@ -70,4 +70,3 @@ angular.module('app')
   //   // $http.post(`${FB_URL}.json`, newUser)
   //   // .then();
   // }
-

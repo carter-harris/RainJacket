@@ -9,6 +9,7 @@ angular.module('app')
                                         // console.log("result via SearchCtrl: ", result.temp_f);
                                         // search.currentTemp = result.temp_f;
         search.temp = result.temp_f;
+        search.temp = Math.floor(search.temp)
                                         // search.weatherIcon = result.icon_url;
                                         // search.WUGpng = result.image.url;
         firebaseObj = {
