@@ -1,5 +1,6 @@
 <div class="container-fluid">
 
+<div>{{populate.userEmail}}</div>
   <div class="row">
     <div class="col-md-12">
       <h1>RainJacket</h1>
@@ -8,30 +9,27 @@
       Logout
       </button>
     </div>
-  </div> <!-- row -->
+  </div>
 
- <!--    <button ng-click="populate.logout()"
-    class="btn btn-danger" value="Login">
-    Logout
-    </button> -->
 
-    <!-- div for weather icon and temp -->
+  <!-- div for weather icon and temp -->
 
-    <!-- button for upload images -->
-    <form ng-submit="populate.upload()">
-      <input type="file" ng-model="populate.file" />
-       <!-- accept="images/*" -->
-      <input type="submit" value="Upload Your Style!" />
-    </form>
+  <!-- button for upload images -->
+  <form ng-submit="populate.upload()">
+    <input type="file" ng-model="populate.file" />
+     <!-- accept="images/*" -->
+    <input type="submit" value="Upload Your Style!" />
+  </form>
 
-      <!-- This is the photo upload thing -->
-      <div ng-repeat="url in populate.photoURLs">
-        <div><img ng-src="{{url}}"></div>
-      </div>
+  <!-- This is the photo upload thing -->
+  <div ng-repeat="url in populate.photoURLs">
+    <div><img class="img" ng-src="{{url}}"></div>
+  </div>
 
-    <div ng-repeat="staticImages in populate.photos">
-      <div><img ng-src="{{staticImages.img}}"></div>
-    </div>
+  <!-- This is what is pulled back from firebase from the search -->
+  <div ng-repeat="staticImages in populate.photos">
+    <div><img class="img" ng-src="{{staticImages.img}}"></div>
+  </div>
 
 
 </div> <!-- container-fluid -->

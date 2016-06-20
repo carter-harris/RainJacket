@@ -33,12 +33,19 @@ body {
   /*background-color: #FFD632; the yellow color */
 }
 
+.img {
+  border: 4px solid black;
+  max-height: 500px;
+  max-width: 500px;
+}
+
 
 /*********************************
           OVERIDE STYLES
 *********************************/
 input {
   border-radius: 0 !important;
+  text-align: center;
 }
 
 button {
