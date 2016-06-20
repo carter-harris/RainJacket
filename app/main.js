@@ -11,3 +11,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'angular.filter'])
 
   // hardcoded logout, comment out / delete once we make a logout button
   // firebase.auth().signOut()
+
+
+  // Get a reference to the storage service,
+  // which is used to create references in your storage bucket
+  // var storage = firebase.storage();

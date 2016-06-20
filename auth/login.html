@@ -1,33 +1,44 @@
 <!-- LOGIN PAGE -->
+<div class="container-fluid">
+  <div class="row login">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="login-box">
+          <h1 class="rainjacket">RainJacket</h1>
+          <h2 class="login-h2">Log in</h2>
+          <form ng-submit="auth.register()">
 
-<h1>RainJacket</h1>
-<h2>Log in</h2>
+            <!-- Email -->
+            <input ng-model="auth.email"
+            type="email" class="form-control login-input" placeholder="Email">
 
-<form ng-submit="auth.register()">
-
-  Email
-  <input ng-model="auth.email"
-  type="email" class="form-control" placeholder="lol@lol.com">
-
-  Password
-  <input ng-model="auth.password"
-  type="password" class="form-control" placeholder="*******">
-
-  <button ng-click="auth.login()"
-  class="btn btn-primary" value="Login">
-  Log in
-  </button>
-
-  <div>
-    Not registered? No worries, click
-    <input type="submit" class="btn btn-info" value="Register"/>
-    to get started!
+            <!-- Password -->
+            <input
+              ng-model="auth.password"
+              type="password"
+              class="form-control login-input"
+              placeholder="Password"
+            >
+            <!-- Login Btn -->
+            <div class="login-btn">
+              <button
+                ng-click="auth.login()"
+                class="btn btn-primary btn-lg btn-block"
+                value="Login"
+              > Log in
+              </button>
+            </div>
+            <!-- Register Btn -->
+            <div class="register-btn">
+              <input
+                type="submit"
+                class="btn btn-info btn-lg btn-block"
+                value="Register"
+              />
+            </div>
+          </form>
+        </div> <!-- Login box -->
+      </div> <!-- end of the row col-md-12 -->
+    <div class="col-md-4"></div>
   </div>
-
-</form>
-
-<!--
-
-  - change register to a link and not a button with the text on the moquq
-
- -->
+</div>
