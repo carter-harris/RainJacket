@@ -4,9 +4,9 @@
     <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="login-box">
-          <h1 class="rainjacket">RainJacket</h1>
+          <h1 class="rainjacket-login">RainJacket</h1>
           <h2 class="login-h2">Log in</h2>
-          <form ng-submit="auth.register()">
+          <form ng-submit="auth.register(userEmail, userPassword)">
 
             <!-- Email -->
             <input ng-model="auth.email"
@@ -22,7 +22,7 @@
             <!-- Login Btn -->
             <div class="login-btn">
               <button
-                ng-click="auth.login()"
+                ng-click="auth.login(userEmail, userPassword)"
                 class="btn btn-primary btn-lg btn-block"
                 value="Login"
               > Log in

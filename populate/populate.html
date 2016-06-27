@@ -1,35 +1,49 @@
 <div class="container-fluid">
-
-<div>{{populate.userEmail}}</div>
+  <div>{{populate.userEmail}}</div>
+  <!-- Header but not a header lol -->
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-6">
       <h1>RainJacket</h1>
-      <button ng-click="populate.logout()"
-      class="btn btn-danger" value="Login">
-      Logout
-      </button>
+    </div>
+    <div class="col-sm-6">
+      <div class="logout-btn">
+        <a href="#/profile-page">Profile</a>  <!-- {{populate.user}} -->
+        <button ng-click="populate.logout()"
+        class="btn btn-danger" value="Login">
+        Logout
+        </button>
+      </div>
     </div>
   </div>
-
-
-  <!-- div for weather icon and temp -->
-
-  <!-- button for upload images -->
-  <form ng-submit="populate.upload()">
-    <input type="file" ng-model="populate.file" />
-     <!-- accept="images/*" -->
-    <input type="submit" value="Upload Your Style!" />
-  </form>
-
-  <!-- This is the photo upload thing -->
-  <div ng-repeat="url in populate.photoURLs">
-    <div><img class="img" ng-src="{{url}}"></div>
+  <!-- Weather icon/temp and upload button -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div>{{populate.temp}}°</div>
+    </div>
+    <div class="col-sm-6">
+      <!-- button for upload images -->
+      <form ng-submit="populate.upload()">
+        <input type="file" ng-model="populate.file" />
+         <!-- accept="images/*" -->
+        <input type="submit" value="Upload Your Style!" />
+      </form>
+    </div>
   </div>
-
-  <!-- This is what is pulled back from firebase from the search -->
-  <div ng-repeat="staticImages in populate.photos">
-    <div><img class="img" ng-src="{{staticImages.img}}"></div>
+  <!-- Images, Images and more Images -->
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- User uploaded photos from images/ folder in firebase -->
+      <!-- <img class="img app-img" ng-repeat="url in populate.photoURLs" ng-src="{{url}}"> -->
+      <!-- Preloaded images from images/ folder in firebase -->
+      <img class="img app-img" ng-repeat="staticImages in populate.photos" ng-src="{{staticImages.img}}">
+    </div>
   </div>
-
-
 </div> <!-- container-fluid -->
+
+  <!-- MASONRY MAGICE -->
+ <!--  <div masonry>
+    <div class="masonry-brick" ng-repeat="staticImages in populate.photos">
+        <img ng-src="{{staticImages.img}}" alt="">
+    </div>
+  </div> -->
+

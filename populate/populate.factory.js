@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('uploadFactory', ($timeout, searchFactory) => ({
+  .factory('populateFactory', ($timeout, searchFactory) => ({
     send (file, path = file.name) {
       return $timeout().then(() => (
         new Promise ((resolve, reject) => {
@@ -14,5 +14,7 @@ angular.module('app')
         })
       ))
     }
+
+
   }))
 // was named populate factory but was changed to upload bc thats all it is doing as of now

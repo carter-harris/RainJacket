@@ -1,86 +1,97 @@
-<div class="container">
+<div class="container-fluid search-wrapper">
+  <div class="row"> <!-- header row -->
+    <div class="col-sm-6">
+      <h1 class="rainjacket-search">RainJacket</h1>
+    </div>
+    <!-- <div class="col-sm-4"></div> -->
+    <div class="col-sm-6">
+      <div class="logout-button-search text-right">
+        <span ng-click="search.logout()" class="glyphicon glyphicon-log-out"></span>
+      </div>
+    </div>
+  </div> <!-- header row -->
 
-<h1>RainJacket</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="text-center">Tell us a little about yourself</h3>
+    </div>
+  </div>
 
-<div>{{search.currentTemp}}</div>
-<img ng-src="{{search.weatherIcon}}" alt="">
-<img ng-src="{{search.WUGpng}}" alt="">
 
-<div>
-  <button ng-click="search.logout()" value="Login">
-    <span class="glyphicon glyphicon-log-out"></span>
-  </button>
-</div>
 
 
 
 <!-- FORM -->
 <!-- <form name="form" class="form-horizontal" ng-submit="search.zipcodeInput(search.zipcode)"> -->
-<form name="form" class="form-horizontal" ng-submit="search.submit(search)">
+<!-- <div class="form-div"> -->
+  <form name="form" class="form-horizontal form" ng-submit="search.submit(search)">
 
-  <!-- Form Name -->
-  <legend>Tell us a little about yourself</legend>
-
-  <!-- Gender dropdown -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="gender">I'm a</label>
-    <div class="col-md-8">
-      <select ng-model="search.gender" id="genderDropdown" name="gender" class="form-control">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
+    <!-- Gender dropdown -->
+    <div class="form-group row">
+      <label class="col-md-2 control-label" for="gender">I'm a</label>
+      <div class="col-md-8">
+        <select ng-model="search.gender" id="genderDropdown" name="gender" class="form-control form-control-lg">
+          <option value="male">Gentleman</option>
+          <option value="female">Lady</option>
+        </select>
+      </div>
+      <div class="col-md-2"></div>
     </div>
-  </div>
 
-  <!-- Event dropdown -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="event">attending a</label>
-    <div class="col-md-8">
-      <select ng-model="search.event" id="eventDropdown" name="event" class="form-control">
-        <option value="festival">festival</option>
-        <option value="dinner date">dinner date</option>
-        <option value="park">park</option>
-      </select>
+    <!-- Event dropdown -->
+    <div class="form-group row">
+      <label class="col-md-2 control-label" for="event">attending a</label>
+      <div class="col-md-8">
+        <select ng-model="search.event" id="eventDropdown" name="event" class="form-control form-control-lg">
+          <option value="festival">festival</option>
+          <option value="dinner date">dinner date</option>
+          <option value="park">park</option>
+        </select>
+      </div>
+      <div class="col-md-2"></div>
     </div>
-  </div>
 
 
-  <!-- Zipcode input -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="zipcode">in</label>
-    <div class="col-md-8">
-      <input
-        ng-model="search.zipcode"
-        id="zipcodeDropdown"
-        name="zipcode"
-        type="text"
-        placeholder="zipcode"
-        pattern="[0-9]{5}"
-        value=""
-        class="form-control input-md"
-        required=""
-      >
-    </div>
-  </div>
-
-
-  <!-- Button -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="showStyles"></label>
-    <div class="col-md-4">
-      <button
-        id="showStylesBtn"
-        type="submit"
-        name="showStyles"
-        class="btn btn-primary"
+    <!-- Zipcode input -->
+    <div class="form-group row">
+      <label class="col-md-2 control-label" for="zipcode">in</label>
+      <div class="col-md-8">
+        <input
+          ng-model="search.zipcode"
+          id="zipcodeDropdown"
+          name="zipcode"
+          type="text"
+          placeholder="zipcode"
+          pattern="[0-9]{5}"
+          value=""
+          class="form-control form-control-lg"
+          required=""
         >
-        Show Styles
-      </button>
+      </div>
+      <div class="col-md-2"></div>
     </div>
-  </div>
 
-</form>
 
+    <!-- Button -->
+    <div class="form-group show-styles-btn">
+      <label class="col-md-2 control-label" for="showStyles"></label>
+      <div class="col-md-8">
+        <button
+          id="showStylesBtn"
+          type="submit"
+          name="showStyles"
+          class="btn btn-primary btn-lg text-center"
+        >
+          Show Styles
+        </button>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+  </form>
+<!-- </div> -->
+
+</div> <!-- page container -->
 
 <!-- ng-disabled="form.$invalid" was inside the button -->
 
@@ -88,3 +99,6 @@
 
 
 
+<!-- <div>{{search.currentTemp}}</div>
+<img ng-src="{{search.weatherIcon}}" alt="">
+<img ng-src="{{search.WUGpng}}" alt=""> -->
