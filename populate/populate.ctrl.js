@@ -3,14 +3,18 @@ angular
   .controller('PopulateCtrl', function (authFactory, $timeout, $location, searchFactory, populateFactory, $routeParams) {
 
     const populate = this;
-    console.log("routeParams", $routeParams );
+
+    console.log("routeParams", $routeParams);
+
+    //
     let userSearchInput = searchFactory.getUserInput()
 
     // Current Temp
     populate.temp = $routeParams.temp;
-    populate.temp = $routeParams.event;
-    populate.icon = $routeParams.iconURL;
-    console.log("populate.icon: ", populate.icon );
+
+    // Weather Icon
+    let iconPath = $routeParams.iconURL.replace('k','i')
+    populate.lol = iconPath;
 
 
     // Array for populated photos after search
@@ -20,7 +24,7 @@ angular
     populate.photoURLs = []
 
     populate.user = authFactory.currentUser().email;
-    console.log("populate.user: ", populate.user );
+
 
 
     // Logout function
@@ -32,12 +36,9 @@ angular
 
     // This pulls in all things under images in FB
     firebase.database().ref('/images').once('value').then((arg) => {
-      console.log('onceValue')
       let foundMatches = false;
-      let searchedData = searchFactory.getUserInput();
+      let searchedData = userSearchInput; // let searchedData = searchFactory.getUserInput();
       let firebaseData = arg.val();
-      console.log("firebaseData: ", firebaseData);
-
 
       for (let userInfo in firebaseData) {
         let minTemp = firebaseData[userInfo].temp - 5;

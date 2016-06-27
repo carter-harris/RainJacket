@@ -8,22 +8,20 @@ angular.module('app')
     search.submit = function (search) {
       searchFactory.currentTemp(search.zipcode)
         .then(result => {
+        console.log("search sumbit: ", result );
 
         search.icon = result.icon;
         search.iconURL = result.icon_url;
-        console.log("icon: ", search.icon );
-        console.log("icon: ", search.iconURL );
         search.temp = result.temp_f;
         search.temp = Math.floor(search.temp)
 
-        apiObj = {
-          iconURL: search.icon_url
-        }
 
         firebaseObj = {
           gender: search.gender,
           event: search.event,
-          temp: search.temp
+          temp: search.temp,
+          icon: search.icon,
+          iconURL: search.iconURL
         };
 
         console.log("firebaseObj: ", firebaseObj);
@@ -36,7 +34,9 @@ angular.module('app')
             gender: firebaseObj.gender,
             event: firebaseObj.event,
             temp: firebaseObj.temp,
-            iconURL: apiObj.iconURL
+            icon: firebaseObj.icon,
+            iconURL: firebaseObj.iconURL
+
           })
       });
     }
