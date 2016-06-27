@@ -7,18 +7,19 @@
     </div>
     <div class="col-sm-6">
       <div class="logout-btn">
-        <a href="#/profile-page">Profile</a>  <!-- {{populate.user}} -->
-        <button ng-click="populate.logout()"
-        class="btn btn-danger" value="Login">
-        Logout
-        </button>
+        <!-- <span class="glyphicon glyphicon-user" aria-hidden="true"></span> -->
+        <a href="#/profile-page"><span class="glyphicon glyphicon-user icon-profile" aria-hidden="true"></span></a>
+        <div class="logout-button-populate text-right">
+          <span ng-click="populate.logout()" class="glyphicon glyphicon-log-out"></span>
+        </div>
       </div>
     </div>
   </div>
   <!-- Weather icon/temp and upload button -->
   <div class="row">
     <div class="col-sm-6">
-      <div>{{populate.temp}}°</div>
+      <div class="temp">{{populate.temp}}°</div>
+      <img class="icon-weather" ng-src="{{populate.lol}}" alt="">
     </div>
     <div class="col-sm-6">
       <!-- button for upload images -->
@@ -39,11 +40,4 @@
     </div>
   </div>
 </div> <!-- container-fluid -->
-
-  <!-- MASONRY MAGICE -->
- <!--  <div masonry>
-    <div class="masonry-brick" ng-repeat="staticImages in populate.photos">
-        <img ng-src="{{staticImages.img}}" alt="">
-    </div>
-  </div> -->
 

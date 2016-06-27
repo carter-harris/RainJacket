@@ -6,12 +6,14 @@
         <div class="login-box">
           <h1 class="rainjacket-login">RainJacket</h1>
           <h2 class="login-h2">Log in</h2>
-          <form ng-submit="auth.register(userEmail, userPassword)">
-
+           <form ng-submit="auth.login(userEmail, userPassword)">
             <!-- Email -->
-            <input ng-model="auth.email"
-            type="email" class="form-control login-input" placeholder="Email">
-
+            <input
+              ng-model="auth.email"
+              type="email"
+              class="form-control login-input"
+              placeholder="Email"
+            >
             <!-- Password -->
             <input
               ng-model="auth.password"
@@ -25,7 +27,8 @@
                 ng-click="auth.login(userEmail, userPassword)"
                 class="btn btn-primary btn-lg btn-block"
                 value="Login"
-              > Log in
+              >
+                Log in
               </button>
             </div>
             <!-- Register Btn -->
