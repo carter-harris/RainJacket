@@ -1,26 +1,35 @@
-angular.module('app')
-  .controller('PopulateCtrl', function(authFactory, $timeout, $location, searchFactory, uploadFactory) {
+angular
+  .module('app')
+  .controller('PopulateCtrl', function (authFactory, $timeout, $location, searchFactory, populateFactory, $routeParams) {
 
     const populate = this;
-
+    console.log("routeParams", $routeParams );
     let userSearchInput = searchFactory.getUserInput()
+
+    // Current Temp
+    populate.temp = $routeParams.temp;
+    populate.temp = $routeParams.event;
+    populate.icon = $routeParams.iconURL;
+    console.log("populate.icon: ", populate.icon );
+
 
     // Array for populated photos after search
     populate.photos = [];
 
-    populate.user = authFactory.currentUser();
+    // Array for uploaded photos
+    populate.photoURLs = []
+
+    populate.user = authFactory.currentUser().email;
+    console.log("populate.user: ", populate.user );
 
 
     // Logout function
     populate.logout = function() {
       firebase.auth().signOut()
-        .then($location.path.bind($location, '/'))
+        .then($location.path($location, '/'))
         .then($timeout)
     }
 
-
-
-    console.log('CONTROLLER')
     // This pulls in all things under images in FB
     firebase.database().ref('/images').once('value').then((arg) => {
       console.log('onceValue')
@@ -51,23 +60,19 @@ angular.module('app')
           populate.photos.push(firebaseData[userInfo]);
         }
       }
-      if(!foundMatches) {
-        alert("Don't go outside...sry");
-      }
+      // if(!foundMatches) {
+      //   alert("Don't go outside...sry");
+      // }
       $timeout();
     })
 
 
-    // File Upload Section
-    // $timeout()
-    //   .then(() => firebase.database().ref('/images').once('value'))
-    //   .then(snap => snap.val())
-    //   .then(data => populate.photoUploads = data)
-
-    populate.photoURLs = []
 
     // Upload photo function
     populate.upload = function () {
+
+      let currentUser = authFactory.currentUser().userId;
+
       const input = document.querySelector('[type="file"]');
       const file = input.files[0];
 
@@ -75,30 +80,27 @@ angular.module('app')
       const getFileExtension = file.type.split('/').slice(-1)[0];
       const randomPath = `${randomInteger}.${getFileExtension}`;
 
-      uploadFactory.send(file, randomPath)
-        .then(res => {
-          return res.downloadURL
-        })
-        .then ((url) => {
-          // console.log("url of send then: ", url);
-          var obj = {
-              img: url,
-              event: userSearchInput.event,
-              gender: userSearchInput.gender,
-              temp: userSearchInput.temp,
-              public: true
-            }
+      const obj = {
+        img: null,
+        event: userSearchInput.event,
+        gender: userSearchInput.gender,
+        temp: userSearchInput.temp,
+        public: true,
+        uid: currentUser
+      }
 
-          firebase.database().ref('/images')
-            .push(obj)
-            .then(() => populate.photos.push(obj))
-            .then(() => $timeout())
+      populateFactory.send(file, randomPath)
+        .then(res => obj.img = res.downloadURL)
+        .then(() => firebase.database().ref('/images').push(obj))
+        .then(() => {
+          $location.path('/profile-page')
+          $timeout()
         })
     }
 
+
+
   })
-
-
 
   // For-in loop
   // loops over the value of the FB objects(images) and takes the users searched info(searchedData)

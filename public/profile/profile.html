@@ -1,9 +1,49 @@
-<h1>RainJacket</h1>
+<div class="container-fluid">
 
-<div>I'm the profile page</div>
-<div>
-  {{profile.heading}}
-</div>
+  <h1>RainJacket</h1>
+  <div class="row">
+    <div class="col-sm-12 profile-cards">
+      <div ng-repeat="(key, data) in profile.data">
+        <img class="app-img" ng-src="{{data.img}}" alt="">
+        <h3>{{data.temp}}°</h3>
+        <h3>{{data.event}}</h3>
+        <button ng-click="profile.deleteImage(key, data)" class="btn btn-danger delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+
+</div> <!-- end of container-fluid -->
+
+
+<!-- <div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>RainJacket</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 profile-cards">
+      <div ng-repeat="(key, data) in profile.data">
+        <img
+          class="app-img"
+          ng-src="{{data.img}}" alt=""
+        >
+        <h3>{{data.temp}}°</h3>
+        <h3>{{data.event}}</h3>
+        <button ng-click="profile.deleteImage(key, data)" class="btn btn-danger delete-btn">Delete</button>
+      </div>
+    </div>
+  </div> -->
+
+
+<!-- </div> --> <!-- end of container-fluid -->
+
+
+
+
 
 <!-- Example Card for Profile -->
 <!-- <div class="row">

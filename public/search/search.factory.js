@@ -10,7 +10,7 @@ angular.module('app')
           .get(`http://api.wunderground.com/api/94f0d7223bd72613/conditions/q/${zipcode}.json`)
           .then(result => {
             currentTemp = result.data.current_observation;
-            // console.log("currentTemp in searchFactory", currentTemp);
+            console.log("currentTemp in searchFactory", currentTemp);
             return currentTemp
           });
       },

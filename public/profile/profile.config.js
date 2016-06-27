@@ -4,7 +4,6 @@ angular.module('app')
       .when('/profile-page', {
         controller: 'ProfileCtrl',
         controllerAs: 'profile',
-        templateUrl: 'profile/profile-page.html'
+        templateUrl: 'profile/profile.html'
       })
-      .otherwise('populate/populate.html')
   })

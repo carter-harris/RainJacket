@@ -6,5 +6,4 @@ angular.module('app')
         controllerAs: 'populate',
         templateUrl: 'populate/populate.html'
       })
-      .otherwise('search/search.html')
   })

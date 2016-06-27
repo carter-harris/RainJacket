@@ -21,6 +21,10 @@
     "bootstrap": "^3.3.6",
     "firebase": "^3.0.4",
     "bootstrap-select": "^1.10.0",
-    "angular-filter": "^0.5.8"
+    "angular-filter": "^0.5.8",
+    "angular-deckgrid": "^0.5.0"
+  },
+  "resolutions": {
+    "angular": "1.5.7"
   }
 }
