@@ -8,7 +8,8 @@ angular.module('app')
     search.submit = function (search) {
       searchFactory.currentTemp(search.zipcode)
         .then(result => {
-        console.log("search sumbit: ", result );
+
+        // console.log("search sumbit: ", result );
 
         search.icon = result.icon;
         search.iconURL = result.icon_url;
@@ -24,7 +25,7 @@ angular.module('app')
           iconURL: search.iconURL
         };
 
-        console.log("firebaseObj: ", firebaseObj);
+        // console.log("firebaseObj: ", firebaseObj);
         searchFactory.setUserInput(firebaseObj);
 
         $timeout()

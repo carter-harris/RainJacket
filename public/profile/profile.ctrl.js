@@ -18,7 +18,7 @@
     }
 
     firebase.database()
-      .ref('/images/')
+      .ref('images/')
       .orderByChild('uid')
       .equalTo(currentUser)
       .on("value", (snap) => {
