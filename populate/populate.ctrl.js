@@ -6,7 +6,6 @@ angular
 
     console.log("routeParams", $routeParams);
 
-    //
     let userSearchInput = searchFactory.getUserInput()
 
     // Current Temp
@@ -37,11 +36,14 @@ angular
     // This pulls in all things under images in FB
     firebase.database().ref('/images').once('value').then((arg) => {
       let foundMatches = false;
-      let searchedData = userSearchInput; // let searchedData = searchFactory.getUserInput();
+      let searchedData = searchFactory.getUserInput();
+      // console.log("searchedData: ",searchedData );
       let firebaseData = arg.val();
+      // console.log("firebaseData: ", firebaseData );
 
       for (let userInfo in firebaseData) {
-        let minTemp = firebaseData[userInfo].temp - 5;
+        console.log("userInfo: ", userInfo );
+        let minTemp = firebaseData[userInfo].temp - 15;
         let maxTemp = firebaseData[userInfo].temp + 15;
 
         firebaseData[userInfo].temp = {

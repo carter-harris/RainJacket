@@ -141,5 +141,12 @@ button {
   border: 1px soild black;
 }
 
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
+.form-headline {
+  /*border: 1px solid black;*/
+  padding-top: 4em;
+  padding-bottom: 1.5em;
+}
+
+.form-headline-text {
+  font-weight: 300 !important;
+}
