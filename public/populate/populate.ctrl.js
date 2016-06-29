@@ -4,16 +4,18 @@ angular
 
     const populate = this;
 
-    console.log("routeParams", $routeParams);
+    populate.spotlight = false;
+    console.log("lol: ", populate.spotlight );
+
+    // console.log("routeParams", $routeParams);
 
     let userSearchInput = searchFactory.getUserInput()
 
     // Current Temp
     populate.temp = $routeParams.temp;
 
-    // Weather Icon
-    let iconPath = $routeParams.iconURL.replace('k','i')
-    populate.lol = iconPath;
+    let conditions = $routeParams.icon;
+    console.log("conditions: ", conditions);
 
 
     // Array for populated photos after search
@@ -42,7 +44,7 @@ angular
       // console.log("firebaseData: ", firebaseData );
 
       for (let userInfo in firebaseData) {
-        console.log("userInfo: ", userInfo );
+        // console.log("userInfo: ", userInfo );
         let minTemp = firebaseData[userInfo].temp - 15;
         let maxTemp = firebaseData[userInfo].temp + 15;
 
@@ -100,6 +102,30 @@ angular
           $timeout()
         })
     }
+
+    populate.setSpotlight = (bool) => {
+        populate.spotlight = bool;
+        console.log("bool: ", bool );
+        console.log("populate.spotlight: ", populate.spotlight );
+        // main.spotlightItem = item;
+      }
+
+
+
+    switch(conditions) {
+      case "cloudy":
+        populate.weatherIcon = 'Y';
+        break;
+      case "partlycloudy":
+        populate.weatherIcon = 'H';
+        break;
+      case "mostlycloudy":
+        populate.weatherIcon = 'Y';
+        break;
+
+
+    }
+
 
 
 
