@@ -3,7 +3,7 @@
   <h1>RainJacket</h1>
   <div class="row">
     <div class="col-sm-12 profile-cards">
-      <div ng-repeat="(key, data) in profile.data">
+      <div class="col-sm-3" ng-repeat="(key, data) in profile.data">
         <img class="app-img" ng-src="{{data.img}}" alt="">
         <h3>{{data.temp}}°</h3>
         <h3>{{data.event}}</h3>

@@ -4,12 +4,17 @@ angular.module('app')
 
     // let currentUser = authFactory.currentUser().userId;
 
+    search.dinnerDate = function (event) {
+      console.log("event: ", event );
+    }
+
+
     // Function that stores the values choosen by the user
     search.submit = function (search) {
       searchFactory.currentTemp(search.zipcode)
         .then(result => {
 
-        // console.log("search sumbit: ", result );
+        console.log("search sumbit: ", result );
 
         search.icon = result.icon;
         search.iconURL = result.icon_url;
