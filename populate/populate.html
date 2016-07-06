@@ -1,37 +1,59 @@
 <div class="container-fluid">
-  <div>{{populate.userEmail}}</div>
-  <!-- Header but not a header lol -->
   <div class="row">
     <div class="col-sm-6">
-      <h1>RainJacket</h1>
+      <h1 class="rainjacket-header">RainJacket</h1>
     </div>
     <div class="col-sm-6">
-      <div class="logout-btn">
-        <!-- <span class="glyphicon glyphicon-user" aria-hidden="true"></span> -->
-        <a href="#/profile-page"><span class="glyphicon glyphicon-user icon-profile" aria-hidden="true"></span></a>
-        <div class="logout-button-populate text-right">
-          <span ng-click="populate.logout()" class="glyphicon glyphicon-log-out"></span>
-        </div>
+      <div class="right-header text-right">
+        <a href="#/profile-page" title="Your Profile">
+          <i
+            class="fa fa-user fa-2x icon-profile icon-hover nav-icons"
+            aria-hidden="true">
+          </i>
+        </a>
+        <i class="fa fa-picture-o fa-2x icon-hover nav-icons" title="Upload Your Style" aria-hidden="true" ng-click="populate.setSpotlight(true)"></i>
+        <a href="{{populate.wuURL}}" title="Current Weather" class="umbrella-link"><i class="fa fa-umbrella fa-2x nav-icons icon-hover" aria-hidden="true"></i></a>
+        <i ng-click="populate.logout()" class="fa fa-sign-out fa-2x icon-profile icon-hover nav-icons" aria-hidden="true"></i>
       </div>
     </div>
   </div>
 
   <!-- Weather icon/temp and upload button -->
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="temp">{{populate.temp}}°</div>
-      <!-- <img class="icon-weather" ng-src="{{populate.lol}}" alt=""> -->
-      <!-- <img class="icon-weather" ng-src="{{populate.lol}}" alt=""> -->
-      <div class="icon-weather">{{populate.weatherIcon}}</div>
+  <div class="row weather-row">
+    <div class="col-sm-3 umbrella-icon">
+      <!-- <a class="umbrella-link" href="{{populate.wuURL}}"><i class="fa fa-umbrella" aria-hidden="true"></i></a> -->
     </div>
-    <div class="col-sm-6 ">
-      <button class="btn btn-primary" ng-click="populate.setSpotlight(true)">Upload Your Style!</button>
+
+    <div class="col-sm-3 text-center booord weather-col-left">
+      <div class="">
+        <div class="temp">
+          {{populate.temp}}°
+          </div>
+        <div class="city">
+          {{populate.city}}
+          </div>
+      </div>
     </div>
+
+    <div class="col-sm-3 booord weather-col-right">
+      <div class="">
+        <div class="icon-weather">
+          {{populate.weatherIcon}}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 text-right upload-styles-icon">
+      <!-- <i class="fa fa-picture-o upload-styles-link" aria-hidden="true" ng-click="populate.setSpotlight(true)"></i> -->
+    </div>
+
   </div>
+
+
 
   <!-- Images, Images and more Images -->
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 ng-cloak">
       <!-- User uploaded photos from images/ folder in firebase -->
       <!-- <img class="img app-img" ng-repeat="url in populate.photoURLs" ng-src="{{url}}"> -->
       <!-- Preloaded images from images/ folder in firebase -->
@@ -82,7 +104,6 @@
 
 • take away inline styles
 • decide which number placement is better
-• style the "X" to the top right corner
 • style the nav and profile icon
 • style the weather box with the temp and icon
 • style and position the upload style btn

@@ -14,7 +14,4 @@ angular.module('app')
         })
       ))
     }
-
-
   }))
-// was named populate factory but was changed to upload bc thats all it is doing as of now

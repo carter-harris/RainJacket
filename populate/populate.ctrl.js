@@ -1,50 +1,29 @@
 angular
   .module('app')
   .controller('PopulateCtrl', function (authFactory, $timeout, $location, searchFactory, populateFactory, $routeParams) {
-
     const populate = this;
 
-    populate.spotlight = false;
-    console.log("lol: ", populate.spotlight );
-
-    // console.log("routeParams", $routeParams);
-
     let userSearchInput = searchFactory.getUserInput()
-
-    // Current Temp
-    populate.temp = $routeParams.temp;
-
     let conditions = $routeParams.icon;
-    console.log("conditions: ", conditions);
 
-
-    // Array for populated photos after search
+    populate.spotlight = false;
+    populate.temp = $routeParams.temp;
+    populate.city = $routeParams.city;
+    populate.wuURL = $routeParams.wuURL;
     populate.photos = [];
-
-    // Array for uploaded photos
     populate.photoURLs = []
-
     populate.user = authFactory.currentUser().email;
 
 
 
-    // Logout function
-    populate.logout = function() {
-      firebase.auth().signOut()
-        .then($location.path($location, '/'))
-        .then($timeout)
-    }
-
-    // This pulls in all things under images in FB
+    // FB SNAPSHOT
     firebase.database().ref('/images').once('value').then((arg) => {
       let foundMatches = false;
       let searchedData = searchFactory.getUserInput();
-      // console.log("searchedData: ",searchedData );
       let firebaseData = arg.val();
-      // console.log("firebaseData: ", firebaseData );
 
+      // LOOP OVER IMAGES IN FB
       for (let userInfo in firebaseData) {
-        // console.log("userInfo: ", userInfo );
         let minTemp = firebaseData[userInfo].temp - 15;
         let maxTemp = firebaseData[userInfo].temp + 15;
 
@@ -73,7 +52,7 @@ angular
 
 
 
-    // Upload photo function
+    // UPLOAD PHOTO
     populate.upload = function () {
 
       let currentUser = authFactory.currentUser().userId;
@@ -103,15 +82,13 @@ angular
         })
     }
 
+    // UPLOAD MODAL
     populate.setSpotlight = (bool) => {
-        populate.spotlight = bool;
-        console.log("bool: ", bool );
-        console.log("populate.spotlight: ", populate.spotlight );
-        // main.spotlightItem = item;
-      }
+      populate.spotlight = bool;
+    }
 
 
-
+    // WEATHER ICON SWITCH STATEMENT
     switch(conditions) {
       case "cloudy":
         populate.weatherIcon = 'Y';
@@ -122,12 +99,38 @@ angular
       case "mostlycloudy":
         populate.weatherIcon = 'Y';
         break;
-
-
+      case "sunny":
+        populate.weatherIcon = 'B';
+        break;
+      case "partlysunny":
+        populate.weatherIcon = 'H';
+        break;
+      case "mostlysunny":
+        populate.weatherIcon = 'B';
+        break;
+      case "clear":
+        populate.weatherIcon = 'B';
+        break;
+      case "rain":
+        populate.weatherIcon = 'R';
+        break;
+      case "tstorms":
+        populate.weatherIcon = 'P';
+        break;
+      case "snow":
+        populate.weatherIcon = 'W';
+        break;
+      default:
+        populate.weatherIcon = 'B';
+        break;
     }
 
-
-
+    // LOGOUT
+    populate.logout = function() {
+      firebase.auth().signOut()
+        .then($location.path($location, '/'))
+        .then($timeout)
+    }
 
   })
 
