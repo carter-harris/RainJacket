@@ -1,62 +1,35 @@
 <div class="container-fluid">
-
-  <h1>RainJacket</h1>
   <div class="row">
-    <div class="col-sm-12 profile-cards">
-      <div class="col-sm-3" ng-repeat="(key, data) in profile.data">
-        <img class="app-img" ng-src="{{data.img}}" alt="">
-        <h3>{{data.temp}}°</h3>
-        <h3>{{data.event}}</h3>
-        <button ng-click="profile.deleteImage(key, data)" class="btn btn-danger delete-btn">Delete</button>
+    <div class="col-sm-6">
+      <h1 class="rainjacket-header">RainJacket</h1>
+    </div>
+    <div class="col-sm-6">
+      <div class="right-header text-right">
+        <!-- <span ng-click="profile.logout()" class="glyphicon glyphicon-log-out icon-hover"></span> -->
+        <i ng-click="profile.logout()" class="fa fa-sign-out fa-2x icon-hover nav-icons" aria-hidden="true"></i>
       </div>
     </div>
   </div>
-
-
+  <div class="row">
+    <div col-sm-12>
+      <h2 class="profile-header">Your styles</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 profile-cards">
+      <div class="col-sm-3 card-divider ng-cloak" ng-repeat="(key, data) in profile.data">
+          <img class="app-img-profile" ng-src="{{data.img}}" alt="">
+          <h3 class="profile-temp">{{data.temp}}°</h3>
+          <h3 class="profile-event">{{data.event}}</h3>
+          <div class="profile-card-delete-btn">
+            <!-- <button ng-click="profile.deleteImage(key, data)" class="btn btn-danger delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button> -->
+            <i class="fa fa-trash-o" ng-click="profile.deleteImage(key, data)" aria-hidden="true"></i>
+          </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+  <div class="row profile-bottom">
+    <div class="col-sm-12"></div>
+  </div>
 </div> <!-- end of container-fluid -->
-
-
-<!-- <div class="container-fluid">
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>RainJacket</h1>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12 profile-cards">
-      <div ng-repeat="(key, data) in profile.data">
-        <img
-          class="app-img"
-          ng-src="{{data.img}}" alt=""
-        >
-        <h3>{{data.temp}}°</h3>
-        <h3>{{data.event}}</h3>
-        <button ng-click="profile.deleteImage(key, data)" class="btn btn-danger delete-btn">Delete</button>
-      </div>
-    </div>
-  </div> -->
-
-
-<!-- </div> --> <!-- end of container-fluid -->
-
-
-
-
-
-<!-- Example Card for Profile -->
-<!-- <div class="row">
- <div class="col-sm-6 col-md-4">
-   <div class="thumbnail">
-     <img src="" alt=".">
-     <div class="caption">
-       <h3>Festival</h3>
-       <h3>Ex 75°</h3>
-       <div>
-         <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
-       </div>
-     </div>
-   </div>
- </div>
-</div> -->

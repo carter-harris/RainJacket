@@ -5,39 +5,41 @@
       <div class="col-md-4">
         <div class="login-box">
           <h1 class="rainjacket-login">RainJacket</h1>
-          <h2 class="login-h2">Log in</h2>
-           <form ng-submit="auth.register(userEmail, userPassword)">
+<!--           <h2 class="login-h2">Log in</h2>
+ -->           <form ng-submit="auth.register(userEmail, userPassword)">
             <!-- Email -->
             <input
               ng-model="auth.email"
               type="email"
-              class="form-control login-input"
+              class="form-control login-input placeholder-slideout"
               placeholder="Email"
             >
             <!-- Password -->
             <input
               ng-model="auth.password"
               type="password"
-              class="form-control login-input"
+              class="form-control login-input placeholder-slideout"
               placeholder="Password"
             >
             <!-- Login Btn -->
-            <div class="login-btn">
+            <div class="login-btn-div">
               <button
                 ng-click="auth.login(userEmail, userPassword)"
-                class="btn btn-primary btn-lg btn-block"
-                value="Login"
+                class="btn btn-primary btn-lg btn-block login-btn"
+                value="Log in"
               >
-                Log in
+                Login
               </button>
             </div>
             <!-- Register Btn -->
-            <div class="register-btn">
-              <input
+            <div class="register-btn-div">
+              <button
                 type="submit"
-                class="btn btn-info btn-lg btn-block"
+                class="btn btn-info btn-lg btn-block register-btn"
                 value="Register"
-              />
+              >
+                Register
+              </button>
             </div>
           </form>
         </div> <!-- Login box -->

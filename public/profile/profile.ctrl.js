@@ -1,6 +1,5 @@
-;angular.module('app')
+angular.module('app')
   .controller('ProfileCtrl', function(authFactory, $timeout, $location, searchFactory, FB_URL) {
-
     const profile = this;
 
     let currentUser = authFactory.currentUser().userId;
@@ -26,5 +25,12 @@
         profile.data = snap.val();
         $timeout();
     })
+
+    // LOGOUT
+    profile.logout = function() {
+      firebase.auth().signOut()
+        .then($location.path($location, '/'))
+        .then($timeout)
+    }
 
   });

@@ -4,36 +4,34 @@ angular.module('app')
 
     // let currentUser = authFactory.currentUser().userId;
 
-    search.dinnerDate = function (event) {
-      console.log("event: ", event );
-    }
-
-
     // Function that stores the values choosen by the user
     search.submit = function (search) {
       searchFactory.currentTemp(search.zipcode)
-        .then(result => {
-
-        console.log("search sumbit: ", result );
+        .then(result => { console.log("WU Obj: ", result);
 
         search.icon = result.icon;
         search.iconURL = result.icon_url;
-        search.temp = result.temp_f;
-        search.temp = Math.floor(search.temp)
-
+        search.temp_f = result.temp_f;
+        search.temp = Math.floor(search.temp_f)
+        search.city = result.display_location.city;
+        search.wind = result.wind_gust_mph;
+        search.wuURL = result.forecast_url;
 
         firebaseObj = {
           gender: search.gender,
           event: search.event,
           temp: search.temp,
           icon: search.icon,
-          iconURL: search.iconURL
+          iconURL: search.iconURL,
+          city: search.city,
+          wind: search.wind,
+          wuURL: search.wuURL
         };
 
-        // console.log("firebaseObj: ", firebaseObj);
         searchFactory.setUserInput(firebaseObj);
 
         $timeout()
+
         $location
           .path('/populate-page')
           .search({
@@ -41,7 +39,10 @@ angular.module('app')
             event: firebaseObj.event,
             temp: firebaseObj.temp,
             icon: firebaseObj.icon,
-            iconURL: firebaseObj.iconURL
+            iconURL: firebaseObj.iconURL,
+            city: firebaseObj.city,
+            wind: firebaseObj.wind,
+            wuURL: firebaseObj.wuURL
 
           })
       });
