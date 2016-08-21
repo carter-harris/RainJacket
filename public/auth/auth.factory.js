@@ -41,9 +41,6 @@ angular.module('app')
           auth: token
         }
       }
-    } // end of the return
+    }
 
-  }) // end of the factory
-
-  // .then($location.path.bind($location, `/search-page/${userId}`))
-
+  })

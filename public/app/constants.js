@@ -1,3 +1,3 @@
 angular.module('app')
-  // .constant('API_URL', '')
+  // Firebase URL
   .constant('FB_URL', 'https://fed-capstone.firebaseio.com/')

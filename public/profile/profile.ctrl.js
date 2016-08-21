@@ -4,11 +4,7 @@ angular.module('app')
 
     let currentUser = authFactory.currentUser().userId;
 
-    // profile.deleteImage = function (key) {
-    //   firebase.database().ref(`images/${key}`).remove()
-    //   $timeout()
-    // }
-
+    // Delete Image function
     profile.deleteImage = function (key, data) {
       firebase.database().ref(`images/${key}/uid`).set(null);
       let index = profile.data.indexOf(data);
@@ -16,6 +12,7 @@ angular.module('app')
       $timeout()
     }
 
+    // Reference of FB database of images
     firebase.database()
       .ref('images/')
       .orderByChild('uid')
