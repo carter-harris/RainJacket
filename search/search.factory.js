@@ -5,6 +5,7 @@ angular.module('app')
     let userInput;
 
     return {
+      // Take users zipcode input and call Weather Underground API for the current temp
       currentTemp (zipcode) {
         return $http
           .get(`http://api.wunderground.com/api/94f0d7223bd72613/conditions/q/${zipcode}.json`)

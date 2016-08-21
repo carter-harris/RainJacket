@@ -20,10 +20,7 @@
 
   <!-- Weather icon/temp and upload button -->
   <div class="row weather-row">
-    <div class="col-sm-3 umbrella-icon">
-      <!-- <a class="umbrella-link" href="{{populate.wuURL}}"><i class="fa fa-umbrella" aria-hidden="true"></i></a> -->
-    </div>
-
+    <div class="col-sm-3 umbrella-icon"></div>
     <div class="col-sm-3 text-center booord weather-col-left">
       <div class="">
         <div class="temp">
@@ -34,7 +31,6 @@
           </div>
       </div>
     </div>
-
     <div class="col-sm-3 booord weather-col-right">
       <div class="">
         <div class="icon-weather">
@@ -42,11 +38,8 @@
         </div>
       </div>
     </div>
-
     <div class="col-sm-3 text-right upload-styles-icon">
-      <!-- <i class="fa fa-picture-o upload-styles-link" aria-hidden="true" ng-click="populate.setSpotlight(true)"></i> -->
     </div>
-
   </div>
 
 
@@ -64,11 +57,9 @@
 <!-- Upload Your Style Modal -->
   <div class="spotlight" ng-show="populate.spotlight">
     <div class="container">
-      <!-- <div class="row"> -->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 parent">
           <span ng-click="populate.setSpotlight(false)" style="color: white;" class="icon-spotlight" aria-hidden="true">X</span>
         </div>
-      <!-- </div> -->
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="content-card">
@@ -78,18 +69,14 @@
             <!-- button for upload images -->
             <form class="form-horizontal" ng-submit="populate.upload()">
               <div class="btn-browse-container">
-                <!-- <p style="color: white;">1. -->
                 <label class="btn btn-default btn-file btn-browse">
                   Browse<input type="file"  style="display: none;" ng-model="populate.file" > <!-- style="display: none;" -->
                 </label>
-                <!-- </p> -->
               </div>
               <div class="btn-upload-container">
-                <!-- <p style="color: white;">2. -->
                 <label class="btn btn-info btn-upload">
                   Upload<input type="submit" style="display: none;" value="Upload" />
                 </label>
-                <!-- </p> -->
               </div>
             </form>
           </div>
@@ -97,18 +84,4 @@
       </div>
     </div>
   </div>
-</div> <!-- container-fluid -->
-
-
-<!--
-
-• take away inline styles
-• decide which number placement is better
-• style the nav and profile icon
-• style the weather box with the temp and icon
-• style and position the upload style btn
-
- -->
-
-
-
+</div>
