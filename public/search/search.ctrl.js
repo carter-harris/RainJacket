@@ -5,7 +5,7 @@ angular.module('app')
     // let currentUser = authFactory.currentUser().userId;
 
     // Function that stores the values choosen by the user
-    search.submit = function (search) {
+    search.submit = function () { // took search out of the arg of this function
       searchFactory.currentTemp(search.zipcode)
         .then(result => { console.log("WU Obj: ", result);
 
