@@ -16,12 +16,12 @@
   </div>
   <div class="row">
     <div class="col-sm-12 profile-cards">
-      <div class="col-sm-3 card-divider ng-cloak" ng-repeat="(key, data) in profile.data">
+      <div class="col-sm-3 card-divider ng-cloak" ng-repeat="(key, data) in profile.data" ng-animate=" 'animate' ">
           <img class="app-img-profile" ng-src="{{data.img}}" alt="">
           <h3 class="profile-temp">{{data.temp}}°</h3>
           <h3 class="profile-event">{{data.event}}</h3>
           <div class="profile-card-delete-btn">
-            <i class="fa fa-trash-o" ng-click="profile.deleteImage(key, data)" aria-hidden="true"></i>
+            <i class="rotate fa fa-trash-o" ng-click="profile.deleteImage(key, data)" aria-hidden="true"></i>
           </div>
       </div>
       <div class="col-sm-3"></div>

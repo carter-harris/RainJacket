@@ -6,5 +6,4 @@ angular.module('app')
         controllerAs: 'search',
         templateUrl: 'search/search.html'
       })
-      // .otherwise('/')
   })
