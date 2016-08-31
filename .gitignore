@@ -2,4 +2,3 @@ node_modules
 bower_components
 public/lib
 DS_Store
-deploy.sh
