@@ -2,8 +2,6 @@ angular.module('app')
   .controller('SearchCtrl', function ($timeout, $location, searchFactory, authFactory, $routeParams) {
     const search = this;
 
-    // let currentUser = authFactory.currentUser().userId;
-
     // Function that stores the values choosen by the user
     search.submit = function () { // took search out of the arg of this function
       searchFactory.currentTemp(search.zipcode)
