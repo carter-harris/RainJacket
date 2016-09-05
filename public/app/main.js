@@ -7,3 +7,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'angular.filter', 'ngAnimate']
     databaseURL: "https://fed-capstone.firebaseio.com",
     storageBucket: "fed-capstone.appspot.com",
   });
+
+  // window.onunload = function () {
+  //   firebase.auth().signOut()
+  //     .then($location.path($location, '/'))
+  //     .then($timeout)
+  // }
+
