@@ -10,4 +10,3 @@ git push origin gh-pages --force
 git checkout master
 git branch -D gh-temp
 git branch -D gh-pages
-bower install
