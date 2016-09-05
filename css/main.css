@@ -423,7 +423,7 @@ input:-webkit-autofill:active {
 }
 
 
-.login-video {
+/*.login-video {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -432,4 +432,4 @@ input:-webkit-autofill:active {
   width: auto;
   height: auto;
   z-index: -1;
-}
+}*/
