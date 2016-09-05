@@ -10,4 +10,5 @@ angular.module('app')
     auth.register = function () {
       authFactory.register(auth.email, auth.password)
     }
+
   })
