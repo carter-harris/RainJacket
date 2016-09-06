@@ -44,4 +44,14 @@ One of the things I really wanted to empliment was a user sourced app that allow
 License
 ----
 
+
 MIT
+
+
+   [AngularJS]: <http://angularjs.org>
+   [jQuery]: <http://jquery.com>
+   [Google Firebase]: <https://firebase.google.com>
+   [Bootstrap]: <http://getbootstrap.com>
+   [Weather Underground API]: <https://www.wunderground.com/weather/api/>
+   [Meteocons]: <http://www.alessioatzeni.com/meteocons/>
+
